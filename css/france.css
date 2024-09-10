@@ -1,49 +1,47 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('../img/FRANCE.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    overflow-y: auto;
-    scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("../img/FRANCE.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 .container {
-    background-color: #fbeee0;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 20px;
+  background-color: #fbeee0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 .container img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 .container h2 {
-    color: #422800;
-    margin-bottom: 20px;
-    font-size: 2em;
+  color: #422800;
+  margin-bottom: 20px;
+  font-size: 2em;
 }
 .container p {
-    color: #422800;
-    line-height: 1.6;
-    margin-bottom: 20px;
+  color: #422800;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
-
-
 
 header {
   position: absolute;
   top: 0;
   width: 100%;
- 
+
   padding: 15px 0;
   text-align: right;
 }
@@ -72,9 +70,12 @@ header {
   color: #fbeee0;
 }
 
-
 @media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+
   .menu a {
-      font-size: 16px;
+    font-size: 16px;
   }
 }

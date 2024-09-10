@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Paris",
+        "image": "img/paris.jpg",
+        "description": "Paris is the capital city of France, known for its art, fashion, gastronomy, and culture. The city is famed for its cafe culture and landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. Whether you're looking to explore historic sites or enjoy the culinary delights of Parisian cuisine, the city offers something for everyone.",
+        "country": "france"
+    },
+    {
+        "name": "Nice",
+        "image": "img/nice.jpg",
+        "description": "Nice, located on the French Riviera, is famous for its stunning Mediterranean coastline, vibrant arts scene, and the Promenade des Anglais. The city is a wonderful blend of French and Italian influences, offering unique architecture, delicious cuisine, and a beautiful climate. From the charming old town to the stunning beaches, Nice offers a perfect destination for relaxation and exploration.",
+        "country": "france"
+    }
+]

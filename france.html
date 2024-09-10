@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>France</title>
-    <link rel="stylesheet" href="css/france.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/france.css" />
+  </head>
+  <body>
     <header>
-        <nav class="menu">
-            <ul>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="add-city.html">Add city</a></li>
-                <li><a href="#"  onclick="clearCities()">Clear</a></li>
-
-            </ul>
-        </nav>
+      <nav class="menu">
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="add-city.html">Add city</a></li>
+          <li><a href="#" onclick="clearCities('france')">Clear</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <div class="container">
-        <img src="img/paris.jpg" alt="Paris">
-        <h2>Paris</h2>
-        <p>Paris is the capital city of France, known for its art, fashion, gastronomy, and culture. The city is famed for its cafe culture and landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum.</p>
-        <p>Whether you're looking to explore historic sites or enjoy the culinary delights of Parisian cuisine, the city offers something for everyone.</p>
-    </div>
+    <div id="cities-container"></div>
 
-    <div class="container">
-        <img src="img/nice.jpg" alt="Nice">
-        <h2>Nice</h2>
-        <p>Nice, located on the French Riviera, is famous for its stunning Mediterranean coastline, vibrant arts scene, and the Promenade des Anglais. The city is a wonderful blend of French and Italian influences, offering unique architecture, delicious cuisine, and a beautiful climate.</p>
-        <p>From the charming old town to the stunning beaches, Nice offers a perfect destination for relaxation and exploration.</p>
-    </div>
+    <script>
+      function loadCities() {
+        fetch("http://localhost:5500/json/french-cities.json")
+          .then((response) => response.json())
+          .then((data) => {
+        
+            const citiesByCountry = JSON.parse(localStorage.getItem("citiesByCountry")) || {};
+            const localCities = citiesByCountry["france"] || [];
+            const combinedCities = [...data, ...localCities];
 
-    <div id="dynamic-cities"></div>
+            const container = document.getElementById("cities-container");
+            container.innerHTML = ""; 
 
-    <script src="js/display-cities.js"></script>
-</body>
+            combinedCities.forEach((city) => {
+              const cityElement = document.createElement("div");
+              cityElement.className = "container";
+
+              cityElement.innerHTML = `
+                            <img src="${city.image}" alt="${city.name}">
+                            <h2>${city.name}</h2>
+                            <p>${city.description}</p>
+                        `;
+
+              container.appendChild(cityElement);
+            });
+          })
+      }
+      window.onload = loadCities;
+
+      function clearCities(country) {
+        const citiesByCountry =
+          JSON.parse(localStorage.getItem("citiesByCountry")) || {};
+        delete citiesByCountry[country];
+        localStorage.setItem(
+          "citiesByCountry",
+          JSON.stringify(citiesByCountry)
+        );
+
+        window.location.reload();
+      }
+    </script>
+  </body>
 </html>
-
-
-
-
-
