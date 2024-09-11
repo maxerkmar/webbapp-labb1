@@ -51,38 +51,32 @@
 
     <script>
       window.onload = function () {
-        const country = "italy"; // This is the country for this page
+        const country = "italy";
         const container = document.getElementById("dynamic-cities");
-
-        // Get cities by country from localStorage
         const citiesByCountry =
           JSON.parse(localStorage.getItem("citiesByCountry")) || {};
         const cities = citiesByCountry[country] || [];
-
-        // Append each city to the container
         cities.forEach((city) => {
           const cityElement = document.createElement("div");
           cityElement.className = "container";
-
           cityElement.innerHTML = `
                     <img src="${city.image}" alt="${city.name}">
                     <h2>${city.name}</h2>
                     <p>${city.description}</p>
                 `;
-
           container.appendChild(cityElement);
         });
       };
       function clearCities(country) {
         const citiesByCountry =
           JSON.parse(localStorage.getItem("citiesByCountry")) || {};
-        delete citiesByCountry[country]; // Remove the cities for this country
+        delete citiesByCountry[country];
         localStorage.setItem(
           "citiesByCountry",
           JSON.stringify(citiesByCountry)
         );
 
-        window.location.reload(); // Refresh the page to update the displayed cities
+        window.location.reload();
       }
     </script>
   </body>
